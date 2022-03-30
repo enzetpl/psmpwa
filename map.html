@@ -7,11 +7,13 @@
   <link rel="canonical" href="https://enzetpl.github.io/github-page-pwa/" />
   <link rel="manifest" href="/psmpwaa/manifest.webmanifest">
   <link rel="stylesheet" href="css/styles.css">
+  <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 </head>
 <body>
  
   MAP
-  <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=19.900703430175785%2C50.03608393128972%2C19.96147155761719%2C50.08589512341928&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=14/50.0610/19.9311">Wyświetl większą mapę</a></small>
+  <div id =”my-map” style = “width:800px; height:600px;”></div>
   <script>
       if (navigator.serviceWorker) {
         navigator.serviceWorker.register (
@@ -19,18 +21,23 @@
           {scope: '/psmpwa/'}
         )
       }
-      var mapTypeArray = [google.maps.MapTypeId.TERRAIN, google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.SATELLITE, "OSM"];
-
-
-map.mapTypes.set("OSM", new google.maps.ImageMapType({
-     getTileUrl: function(coord, zoom) {
-        return "//b.tile.openstreetmap.org/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
-     },
-     tileSize: new google.maps.Size(256, 256),
-     name: "OSM",
-     maxZoom: 19
-}));
   </script>
+  <script>
+    // Creating map options
+    var mapOptions = {
+    center: [17.385044, 78.486671],
+    zoom: 10
+    }
+    
+    // Creating a map object
+    var map = new L.map(‘map’, mapOptions);
+    
+    // Creating a Layer object
+    var layer = new     L.TileLayer(‘http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png’);
+    
+    // Adding layer to the map
+    map.addLayer(layer);
+    </script>
   <script src="js/app.js"></script>
 </body>
 </html>
