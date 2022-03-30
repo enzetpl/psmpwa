@@ -19,6 +19,17 @@
           {scope: '/psmpwa/'}
         )
       }
+      var mapTypeArray = [google.maps.MapTypeId.TERRAIN, google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.SATELLITE, "OSM"];
+
+
+map.mapTypes.set("OSM", new google.maps.ImageMapType({
+     getTileUrl: function(coord, zoom) {
+        return "//b.tile.openstreetmap.org/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
+     },
+     tileSize: new google.maps.Size(256, 256),
+     name: "OSM",
+     maxZoom: 19
+}));
   </script>
   <script src="js/app.js"></script>
 </body>
