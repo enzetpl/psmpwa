@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub page as PWA template</title>
+  <link rel="canonical" href="https://enzetpl.github.io/github-page-pwa/" />
+  <link rel="manifest" href="/github-page-pwa/manifest.webmanifest">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+ 
+  MAP
+
+  <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register (
+          '/github-page-pwa/sw.js',
+          {scope: '/github-page-pwa/'}
+        )
+      }
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>
