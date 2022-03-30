@@ -16,7 +16,10 @@
   Ivan Kudybyn
    <a href="map.html">MAPA</a>
   <a href="sos.html">SOS</a>
-
+  <button
+  onclick="vibrate({ duration: 200, interval: 150, count: 3 })">
+  vibrate
+</button>
   <script>
       if (navigator.serviceWorker) {
         navigator.serviceWorker.register (
